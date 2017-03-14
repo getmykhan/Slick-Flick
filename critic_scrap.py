@@ -22,7 +22,7 @@ def run(url):
 
     #pageNum=1 # number of pages to collect
 
-    fw=open('reviews1.txt','w') # output file
+    fw=open('critic_review.txt','w') # output file
 
     for p in range(1,51): # for each page
 
@@ -73,23 +73,19 @@ def run(url):
         else:
             pass
 
-        def getRating(review):
+        for review in reviews:
+
             rating='NA' # initialize critic and text
             #ratingChunk=review.find('div',{'class':'review_icon icon small fresh'})
             if (review.find('div',{'class':'review_icon icon small fresh'})):
                 rating = 'fresh'
-                return rating
-
+                fw.write(rating+'\n')
             elif (review.find('div',{'class':'review_icon icon small rotten'})):
                  rating = 'rotten'
-                 return rating
+                 fw.write(rating+'\n')
             else:
-                return rating                                                # rating=ratingChunk.text#.encode('ascii','ignore')
+                break                                                # rating=ratingChunk.text#.encode('ascii','ignore')
 
-
-
-        for review in reviews:
-            print (getRating(review))
 """
             critic,text='NA','NA' # initialize critic and text
             criticChunk=review.find('a',{'class':re.compile('bold unstyled')})

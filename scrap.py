@@ -13,13 +13,18 @@ def run(url):
 
     moviename = input(">> ")
     moviename = moviename.lower()
-    print(moviename)
+    if ' ' in moviename:
+        moviename = moviename.replace(" ", "_") #replace the whitespaces with underscores
+    else:
+        pass
+
+    print("Scrapping", moviename)
 
     #pageNum=1 # number of pages to collect
 
     fw=open('reviews1.txt','w') # output file
 
-    for p in range(1,51): # for each page
+    for p in range(1,101): # for each page
 
         print ('page',p)
         html=None

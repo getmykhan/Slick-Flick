@@ -1,5 +1,5 @@
 """
-This Script critic scraps data for any movie from rottentomatoes
+This Script scraps critic data for any movie from rottentomatoes
 Script Version : 2.1.6
 """
 
@@ -80,6 +80,7 @@ def run(url):
             if (review.find('div',{'class':'review_icon icon small fresh'})):
                 rating = 'fresh'
                 fw.write(rating+'\n')
+
             elif (review.find('div',{'class':'review_icon icon small rotten'})):
                  rating = 'rotten'
                  fw.write(rating+'\n')

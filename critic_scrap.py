@@ -1,5 +1,5 @@
 """
-This Script scraps critic data for any movie from rottentomatoes
+This Script scrapes critic data for any movie from rottentomatoes
 Script Version : 2.1.6
 """
 
@@ -7,10 +7,46 @@ from bs4 import BeautifulSoup
 import re
 import time
 import requests
+import csv
 
+def writeto():
+        rcnt = 0
+        fcnt = 0
+        fin = open('critic_review.txt', 'r')
+        filee = open('new.txt', 'w')
+        for line in fin:
+            word=line.strip()
+            if word == 'rotten':
+                rcnt = rcnt + 1
+                #filee.write(str(rcnt))
+            elif word == 'fresh':
+                fcnt = fcnt + 1
+                #filee.write(str(fcnt))
+            else:
+                pass
+
+        print (rcnt, fcnt)
+        listBlank = []
+        listBlank.append(rcnt)
+        listBlank.append(fcnt)
+        print(listBlank)
+
+        with open('review.csv', 'w') as outcsv:
+            #configure writer to write standard csv file
+            writer = csv.writer(outcsv, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
+            writer.writerow(['Rotten', 'Fresh'])
+            for i in range(0,1):
+                #Write item to outcsv
+                writer.writerow([listBlank[0], listBlank[1]])
+"""
+        with open('review.csv', 'w', newline='') as csvfile:
+            spamwriter = csv.writer(csvfile,
+                            quotechar='|', quoting=csv.QUOTE_MINIMAL)
+            spamwriter.writerow(["Rotten"],[rcnt])
+            spamwriter.writerow(["Fresh"],[fcnt])
+"""
 
 def run(url):
-
     moviename = input(">> ")
     moviename = moviename.lower()
     if ' ' in moviename:
@@ -24,7 +60,7 @@ def run(url):
 
     fw=open('critic_review.txt','w') # output file
 
-    for p in range(1,51): # for each page
+    for p in range(1,5): # for each page
 
         print ('page',p)
         html=None
@@ -86,19 +122,9 @@ def run(url):
                  fw.write(rating+'\n')
             else:
                 break                                                # rating=ratingChunk.text#.encode('ascii','ignore')
+    fw.close()
+    writeto()
 
-"""
-            critic,text='NA','NA' # initialize critic and text
-            criticChunk=review.find('a',{'class':re.compile('bold unstyled')})
-            if criticChunk: critic=criticChunk.text#.encode('ascii','ignore')
-
-            textChunk=review.find('div',{'class':'user_review'})
-            if textChunk: text=textChunk.text#.encode('ascii','ignore')
-            fw.write(critic+'\t'+text+'\n') # write to file
-
-            time.sleep(2)	# wait 2 secs
-"""
-    #fw.close()
 
 if __name__=='__main__':
     url='https://www.rottentomatoes.com/m/'

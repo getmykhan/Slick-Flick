@@ -1,8 +1,39 @@
 """
-This Script performs Sentimental Analysis on the the scraped reviews 
-Script Version : 2.11.2
+This Script performs Sentimental Analysis on the the scraped reviews
+Script Version : 3.3.2
 """
+
 import time
+import csv
+
+
+def writeto():
+    rcnt = 0
+    fcnt = 0
+    fine = open('sentiment.txt', 'r')
+    for line in fine:
+        word=line.strip()
+        if word == '-1':
+            rcnt = rcnt + 1
+        elif word == '1':
+            fcnt = fcnt + 1
+        else:
+            pass
+
+    print (rcnt, fcnt)
+    listBlank = []
+    listBlank.append(rcnt)
+    listBlank.append(fcnt)
+    print(listBlank)
+    fine.close()
+
+    with open('review.csv', 'w') as outcsv:
+        writer = csv.writer(outcsv, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
+        writer.writerow(['Rotten', 'Fresh'])
+        for i in range(0,1):
+                #Write item to outcsv
+            writer.writerow([listBlank[0], listBlank[1]])
+
 
 #function that loads a lexicon of positive words to a set and returns the set
 def loadLexicon(fname):
@@ -57,6 +88,8 @@ if __name__ == "__main__":
     reviews,decisions=run('reviews.txt')
     fw = open('sentiment.txt', 'w')
     for i in range(len(reviews)):
-        time.sleep(1)
-        fw.write(str(decisions[i]))
+        #time.sleep(1)
+        fw.write(str(decisions[i]) + "\n")
         print(reviews[i], decisions[i])
+    fw.close()
+    writeto()

@@ -22,7 +22,7 @@ def run(url):
 
     #pageNum=1 # number of pages to collect
 
-    fw=open('reviews1.txt','w') # output file
+    fw=open('reviews.txt','w') # output file
 
     for p in range(1,101): # for each page
 

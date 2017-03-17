@@ -1,6 +1,6 @@
 """
-This Script scraps data for any movie from rottentomatoes
-Script Version : 2.0.6
+This Script scrapes data for any movie from rottentomatoes
+Script Version : 3.11.4
 """
 
 from bs4 import BeautifulSoup

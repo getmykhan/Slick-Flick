@@ -1,4 +1,3 @@
-# Slick-Flick
-## Rotten Tomatoes
+# Slick-Flick ## Rotten Tomatoes
 
 This is just some random text

@@ -23,9 +23,11 @@ def writeto():
                 pass
 
         print (rcnt, fcnt)
+        rcntper = (rcnt / (rcnt + fcnt)) * 100
+        fcntper = (fcnt / (rcnt + fcnt )) * 100
         listBlank = []
-        listBlank.append(rcnt)
-        listBlank.append(fcnt)
+        listBlank.append(rcntper)
+        listBlank.append(fcntper)
         print(listBlank)
 
         with open('review.csv', 'w') as outcsv:

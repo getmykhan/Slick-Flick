@@ -1,6 +1,6 @@
 """
 This Script scrapes critic data for any movie from rottentomatoes
-Script Version : 3.0.5
+Script Version : 3.8.5
 """
 
 from bs4 import BeautifulSoup
@@ -31,10 +31,10 @@ def writeto():
         with open('review.csv', 'w') as outcsv:
             #configure writer to write standard csv file
             writer = csv.writer(outcsv, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
-            writer.writerow(['Rotten', 'Fresh'])
+            writer.writerow([' ','Rotten', 'Fresh'])
             for i in range(0,1):
                 #Write item to outcsv
-                writer.writerow([listBlank[0], listBlank[1]])
+                writer.writerow(["Critic", listBlank[0], listBlank[1]])
 
 def run(url):
     moviename = input(">> ")

@@ -1,6 +1,6 @@
 """
 This Script performs Sentimental Analysis on the the scraped reviews
-Script Version : 3.3.2
+Script Version : 3.3.7
 """
 
 import time
@@ -21,9 +21,11 @@ def writeto():
             pass
 
     print (rcnt, fcnt)
+    rcntper = (rcnt / (rcnt + fcnt)) * 100
+    fcntper = (fcnt / (rcnt + fcnt )) * 100
     listBlank = []
-    listBlank.append(rcnt)
-    listBlank.append(fcnt)
+    listBlank.append(rcntper)
+    listBlank.append(fcntper)
     print(listBlank)
     fine.close()
 

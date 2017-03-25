@@ -4,10 +4,15 @@ Slick-Flick is a Python Program that scrapes reviews of any movie from Rotten To
 
 ## Steps to run the program
 
-### Step One:
+### 1. Step One:
 > Run Scrape.py
 
 User reviews are scraped and saved into `reviews.txt`
+
+### 2. Step Two:
+> Run critic_scrape.py
+
+Either `Fresh` or `Rotten` is written into `critic_review.txt` based on the scraped critic review. 
 
 
 ![logan_review](https://cloud.githubusercontent.com/assets/15202558/24163146/1dd3baf4-0e40-11e7-851f-1979c8042386.png) ![getout_review](https://cloud.githubusercontent.com/assets/15202558/24171258/14644a0a-0e5a-11e7-9380-10916f554b40.png)

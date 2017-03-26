@@ -23,4 +23,11 @@ User reviews are scraped and saved into `reviews.txt`
 * The script performs Sentimental Analysis on the scraped user reviews i.e `reviews.txt` and stores the results in `sentiment.txt`
 * The script also appends the values (percentage) into `review.csv`
 
+### 4. Visualization:
+* Visualization is done via Tableau to better understand the final results.
+
+## An Example
+Below are two movies namely `Logan` and `Get Out` whose histogram has been plotted after complete analysis.
+
 ![logan_review](https://cloud.githubusercontent.com/assets/15202558/24163146/1dd3baf4-0e40-11e7-851f-1979c8042386.png) ![getout_review](https://cloud.githubusercontent.com/assets/15202558/24171258/14644a0a-0e5a-11e7-9380-10916f554b40.png)
+
